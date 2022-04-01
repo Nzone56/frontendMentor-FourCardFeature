@@ -1,0 +1,128 @@
+$Red: hsl(0, 78%, 62%);
+$Cyan: hsl(180, 62%, 55%);
+$Orange: hsl(34, 97%, 64%);
+$Blue: hsl(212, 86%, 64%);
+$Very-Dark-Blue: hsl(234, 12%, 34%);
+$Grayish-Blue: hsl(229, 6%, 66%);
+$Very-Light-Gray: hsl(0, 0%, 98%);
+
+$breakpoints: (
+  "small":  375px,
+  "medium'": 992px,
+  'large':  1200px
+); 
+
+@mixin responsive($breakpoint) {
+    @media only screen and (min-width: $breakpoint)
+    {
+        @content; 
+    }
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+    border: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: $Very-Light-Gray;
+}
+header{
+    margin: 7% 7% 5% 7%;
+    padding-top: 8rem;
+    text-align: center;
+    @include responsive(1200px){
+        padding-top: 0;
+        margin: 5% 30% 0% 30%;
+    }
+    h1{
+        color: $Very-Dark-Blue;
+        font-weight: 200;
+        font-size: 2.5rem;
+        margin-bottom: 2%;
+        @include responsive(1200px){
+            font-size: 3.5rem;
+        }
+        span{
+            font-weight: 600;
+        }
+    }
+    p{  
+        font-size: 1.6rem;
+        color: $Grayish-Blue;
+        font-weight: 400;
+    }
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10% 5%;
+    @include responsive(1200px){
+        padding-top: 0;
+        margin: 0% 5% 5% 0; 
+    }
+    &__card{
+        border: 25px;
+        background-color: white;
+        box-shadow: 2px 5px 10px 2px $Grayish-Blue; 
+        margin: 2%;
+        width: 32rem;
+        border-radius: 5px;
+        @include responsive(1200px){
+            margin-top: 0; 
+        }
+        h2{
+            margin: 7% 12% 0% 7%;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        p{
+            margin: 3% 12% 0% 7%;
+            font-size: 1.5rem;
+            color: $Grayish-Blue
+        }
+        img{
+            margin:10%; 
+            float: right;
+        }
+    }
+}
+.one{
+    margin-top: 5%;
+    border-top: 2px solid $Cyan;
+}
+.two{
+    margin-top: 5%;
+    border-top: 2px solid $Red;
+}
+.three{
+    margin-top: 5%;
+    border-top: 2px solid $Orange;
+}
+.four{
+    margin-top: 5%;
+    border-top: 2px solid $Blue;
+
+}
+.attribution { 
+    font-size: 1.2rem; 
+    text-align: center; 
+    a { 
+        color: $Very-Dark-Blue;
+        font-weight: 700;
+     }
+}
